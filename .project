@@ -1,0 +1,16 @@
+<projectDescription>
+  <name>javaslicer-core</name>
+  <comment>Computes slices of Java programs, based on a bytecode trace. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>javaslicer-common</project>
+    <project>javaslicer-traceReader</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
