@@ -25,7 +25,9 @@ package de.unisb.cs.st.javaslicer.dependenceAnalysis;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+
 import de.unisb.cs.st.javaslicer.common.classRepresentation.ReadMethod;
 import de.unisb.cs.st.javaslicer.variables.Variable;
 
@@ -87,10 +89,13 @@ public abstract class DependencesVisitorAdapter2<InstanceType> implements Depend
     public boolean visitCanReachEvent(InstanceType instance, InstanceType instane2)throws InterruptedException{
     	return false;
     }
-    public boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Variable var1 , 
-    		InstanceType  lastReader, Map<String,Set<Integer>> map)throws InterruptedException {
-    	return false;
-    }
+//    public boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Variable var1 , 
+//    		InstanceType  lastReader, Map<String,Set<Integer>> map)throws InterruptedException {
+//    	return false;
+//    }
+  public boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Set<Entry<Variable, List<InstanceType>>>  filteredMap, Map<String,Set<Integer>> map)throws InterruptedException {
+return false; 
+}   
     public boolean visitCanModifyInteresting(InstanceType instance,long frame,InstanceType instance2, Map<String,Set<Integer>> map)throws InterruptedException {
     	return false;
     }

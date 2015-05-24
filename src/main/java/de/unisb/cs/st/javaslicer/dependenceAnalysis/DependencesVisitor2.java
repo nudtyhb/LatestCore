@@ -25,8 +25,10 @@ package de.unisb.cs.st.javaslicer.dependenceAnalysis;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
+import de.unisb.cs.st.javaslicer.common.classRepresentation.InstructionInstance;
 import de.unisb.cs.st.javaslicer.common.classRepresentation.ReadMethod;
 import de.unisb.cs.st.javaslicer.common.classRepresentation.instructions.MethodInvocationInstruction;
 import de.unisb.cs.st.javaslicer.variables.Variable;
@@ -87,11 +89,12 @@ public interface DependencesVisitor2<InstanceType> {
 
     boolean visitCanReachEvent(InstanceType instance, InstanceType instance2)throws InterruptedException;
     
-    boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Variable var1, 
-    		InstanceType  lastReader, Map<String,Set<Integer>> map)throws InterruptedException;
+    //boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Variable var1, 
+   // 		InstanceType  lastReader, Map<String,Set<Integer>> map)throws InterruptedException;
+    boolean visitCanModify(InstanceType instance,long frame,InstanceType instance2, Set<Entry<Variable,List<InstanceType>>> map1, Map<String,Set<Integer>> map)throws InterruptedException;
     boolean visitCanModifyInteresting(InstanceType instance,long frame,InstanceType instance2, Map<String,Set<Integer>> map)throws InterruptedException;
     /**
-     * Gets called if there might be a data dependence that gets visited later.
+     * Gets called if there might be a data dependence that gets visited later. 
      *
      * If the type is {@link DataDependenceType#READ_AFTER_WRITE}, then most probably
      * {@link #visitDataDependence(Object, Object, Collection, Variable, DataDependenceType)}
